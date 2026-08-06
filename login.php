@@ -69,6 +69,7 @@
         .navLinks a.active {
             font-weight: 700;
         }
+
         /*
           Login page
         */
@@ -236,7 +237,111 @@
 </head>
 
 <body>
+    <header class="header">
+        <nav class="nav">
 
+            <a href="index.php" class="logo">
+                FindIt
+            </a>
+
+            <div class="navLinks">
+                <a href="index.php">Home</a>
+
+                <a href="browse.php">
+                    Browse Items
+                </a>
+
+                <a href="report.php">
+                    Report Item
+                </a>
+
+                <a href="contact.php">
+                    Contact
+                </a>
+
+                <a href="login.php" class="active">
+                    Login
+                </a>
+
+                <a href="register.php" class="registerLink">
+                    Register
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main class="loginPage">
+
+        <section class="loginCard">
+
+            <div class="loginHeader">
+                <h1>Welcome Back</h1>
+
+                <p>
+                    Login to manage your lost and found reports.
+                </p>
+            </div>
+
+            <?php if ($successMessage !== ""): ?>
+
+                <div class="formMessage successMessage" role="status">
+                    <?php echo htmlspecialchars($successMessage); ?>
+                </div>
+
+            <?php endif; ?>
+
+            <?php if ($errorMessage !== ""): ?>
+
+                <div class="formMessage errorMessage" role="alert">
+                    <?php echo htmlspecialchars($errorMessage); ?>
+                </div>
+
+            <?php endif; ?>
+
+            <form action="login.php" method="POST">
+
+                <div class="formGroup">
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email"
+                        value="<?php echo htmlspecialchars($email); ?>" required>
+                </div>
+
+                <div class="formGroup">
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input type="password" id="password" name="password" placeholder="Enter your password"
+                        autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" class="loginButton">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="bottomText">
+                Do not have an account?
+
+                <a href="register.php">
+                    Create an account
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
 </body>
 
 </html>
