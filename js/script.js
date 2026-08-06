@@ -168,3 +168,88 @@ function searchItems() {
 
   showItems(result);
 }
+
+// Show item details
+function showDetails(id) {
+  let item;
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].id === id) {
+      item = items[i];
+    }
+  }
+
+  let detailsBox = document.getElementById("detailsBox");
+  let details = document.getElementById("details");
+
+  if (!detailsBox) {
+    return;
+  }
+
+  details.innerHTML = `
+    <div class="popupIcon">${item.icon}</div>
+    <h2>${item.name}</h2>
+    <p><b>Type:</b> ${item.type.toUpperCase()}</p>
+    <p><b>Category:</b> ${item.category}</p>
+    <p><b>Color:</b> ${item.color}</p>
+    <p><b>Location:</b> ${item.location}</p>
+    <p><b>Date:</b> ${item.date}</p>
+    <p><b>Description:</b> ${item.description}</p>
+  `;
+
+  detailsBox.classList.add("show");
+}
+
+// Run after page loads
+document.addEventListener("DOMContentLoaded", function() {
+  showHomeItems();
+  showItems(items);
+
+  // Mobile menu
+  let menuBtn = document.getElementById("menuBtn");
+  let menu = document.getElementById("menu");
+
+  if (menuBtn) {
+    menuBtn.addEventListener("click", function() {
+      menu.classList.toggle("show");
+    });
+  }
+
+  // Browse filters
+  let searchInput = document.getElementById("searchInput");
+  let typeFilter = document.getElementById("typeFilter");
+  let categoryFilter = document.getElementById("categoryFilter");
+  let clearBtn = document.getElementById("clearBtn");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", searchItems);
+    typeFilter.addEventListener("change", searchItems);
+    categoryFilter.addEventListener("change", searchItems);
+
+    clearBtn.addEventListener("click", function() {
+      searchInput.value = "";
+      typeFilter.value = "all";
+      categoryFilter.value = "all";
+      showItems(items);
+    });
+
+    let savedSearch = localStorage.getItem("searchText");
+
+    if (savedSearch) {
+      searchInput.value = savedSearch;
+      localStorage.removeItem("searchText");
+      searchItems();
+    }
+  }
+
+  // Home search
+  let homeSearchBtn = document.getElementById("homeSearchBtn");
+
+  if (homeSearchBtn) {
+    homeSearchBtn.addEventListener("click", function() {
+      let text = document.getElementById("homeSearch").value;
+
+      localStorage.setItem("searchText", text);
+      window.location.href = "browse.html";
+    });
+  }
