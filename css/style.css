@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #273142;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  color: #222;
+}
+
+.logo span {
+  color: #4f46e5;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.menu a {
+  color: #555;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.menu a:hover {
+  color: #4f46e5;
+}
+
+.registerBtn {
+  background: #4f46e5;
+  color: white !important;
+  padding: 8px 14px;
+  border-radius: 5px;
+}
+
+.menuBtn {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 25px;
+}
+
+/* Home */
+.home {
+  background: linear-gradient(135deg, #eef2ff, white);
+  padding: 85px 0;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.smallTitle {
+  color: #4f46e5;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.left h1 {
+  font-size: 50px;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  color: #172033;
+}
+
+.text {
+  color: #666;
+  font-size: 17px;
+  max-width: 600px;
+}
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  padding: 11px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #3f38c5;
+}
+
+.outlineBtn {
+  background: white;
+  color: #4f46e5;
+  border: 1px solid #4f46e5;
+}
+
+.box {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.bigIcon {
+  font-size: 50px;
+}
+
+.box h2 {
+  margin: 8px 0;
+}
+
+.box p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.box input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.fullBtn {
+  width: 100%;
+}
