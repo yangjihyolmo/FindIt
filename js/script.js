@@ -129,3 +129,42 @@ function showItems(list) {
     noItem.style.display = "none";
   }
 }
+
+// Search and filter items
+function searchItems() {
+  let searchInput = document.getElementById("searchInput");
+  let typeFilter = document.getElementById("typeFilter");
+  let categoryFilter = document.getElementById("categoryFilter");
+
+  if (!searchInput) {
+    return;
+  }
+
+  let searchText = searchInput.value.toLowerCase();
+  let type = typeFilter.value;
+  let category = categoryFilter.value;
+  let result = [];
+
+  for (let i = 0; i < items.length; i++) {
+    let itemName = items[i].name.toLowerCase();
+    let itemLocation = items[i].location.toLowerCase();
+
+    let matchText =
+      itemName.includes(searchText) ||
+      itemLocation.includes(searchText);
+
+    let matchType =
+      type === "all" ||
+      items[i].type === type;
+
+    let matchCategory =
+      category === "all" ||
+      items[i].category === category;
+
+    if (matchText && matchType && matchCategory) {
+      result.push(items[i]);
+    }
+  }
+
+  showItems(result);
+}
