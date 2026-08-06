@@ -1,3 +1,17 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . "/config/db.php";
+
+$errorMessage = "";
+$successMessage = $_SESSION["login_success"] ?? "";
+$email = "";
+
+unset($_SESSION["login_success"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -288,7 +302,6 @@
                 <div class="formMessage successMessage" role="status">
                     <?php echo htmlspecialchars($successMessage); ?>
                 </div>
-
             <?php endif; ?>
 
             <?php if ($errorMessage !== ""): ?>
