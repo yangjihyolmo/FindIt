@@ -4,7 +4,7 @@ $host = "127.0.0.1";
 $port = "5431";
 $dbname = "lostfound_db";
 $username = "yangjihyolmo";
-$password = "yangjihyolmo13@#";
+$password = "your_password";
 
 try {
     $connection = new PDO(
