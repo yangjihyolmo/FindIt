@@ -10,6 +10,24 @@ $successMessage = $_SESSION["login_success"] ?? "";
 $email = "";
 
 unset($_SESSION["login_success"]);
+
+/*
+Redirect users who are already logged in
+*/
+
+if (isset($_SESSION["user_id"])) {
+    if (
+        isset($_SESSION["role"]) &&
+        strtolower($_SESSION["role"]) === "admin"
+    ) {
+        header("Location: admin_dashboard.php");
+        exit();
+    }
+
+    header("Location: dashboard.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
