@@ -253,3 +253,89 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = "browse.html";
     });
   }
+
+  // Close details popup
+  let closeBtn = document.getElementById("closeBtn");
+  let detailsBox = document.getElementById("detailsBox");
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function() {
+      detailsBox.classList.remove("show");
+    });
+
+    detailsBox.addEventListener("click", function(event) {
+      if (event.target === detailsBox) {
+        detailsBox.classList.remove("show");
+      }
+    });
+  }
+
+  // Report form
+  let reportForm = document.getElementById("reportForm");
+
+  if (reportForm) {
+    document.getElementById("date").max =
+      new Date().toISOString().split("T")[0];
+
+    reportForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      document.getElementById("formMessage").innerText =
+        "Report submitted successfully!";
+
+      reportForm.reset();
+    });
+  }
+
+  // Contact form
+  let contactForm = document.getElementById("contactForm");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      document.getElementById("contactStatus").innerText =
+        "Message sent successfully!";
+
+      contactForm.reset();
+    });
+  }
+
+  // Login form
+  let loginForm = document.getElementById("loginForm");
+
+  if (loginForm) {
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      document.getElementById("loginMessage").innerText =
+        "Login successful!";
+
+      loginForm.reset();
+    });
+  }
+
+  // Register form
+  let registerForm = document.getElementById("registerForm");
+
+  if (registerForm) {
+    registerForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let password = document.getElementById("password").value;
+      let confirmPassword =
+        document.getElementById("confirmPassword").value;
+      let message =
+        document.getElementById("registerMessage");
+
+      if (password !== confirmPassword) {
+        message.style.color = "red";
+        message.innerText = "Passwords do not match.";
+      } else {
+        message.style.color = "green";
+        message.innerText = "Registration successful!";
+        registerForm.reset();
+      }
+    });
+  }
+});
