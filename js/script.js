@@ -91,3 +91,16 @@ function createCard(item) {
     </div>
   `;
 }
+
+// Show recent items on home page
+function showHomeItems() {
+  let homeItems = document.getElementById("homeItems");
+
+  if (homeItems) {
+    homeItems.innerHTML = "";
+
+    for (let i = 0; i < 3; i++) {
+      homeItems.innerHTML += createCard(items[i]);
+    }
+  }
+}
