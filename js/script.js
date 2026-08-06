@@ -67,3 +67,27 @@ let items = [
     icon: "👛"
   }
 ];
+
+// Create one item card
+function createCard(item) {
+  return `
+    <div class="card">
+      <div class="image">${item.icon}</div>
+
+      <div class="info">
+        <div class="cardTop">
+          <span class="type ${item.type}">${item.type.toUpperCase()}</span>
+          <span class="date">${item.date}</span>
+        </div>
+
+        <h3>${item.name}</h3>
+        <p><b>Category:</b> ${item.category}</p>
+        <p><b>Location:</b> ${item.location}</p>
+
+        <button class="cardBtn" onclick="showDetails(${item.id})">
+          View Details
+        </button>
+      </div>
+    </div>
+  `;
+}
