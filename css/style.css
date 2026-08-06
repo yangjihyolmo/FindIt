@@ -452,3 +452,119 @@ header {
 .contactBox p {
   color: #666;
 }
+
+/* Login */
+.loginPage {
+  min-height: calc(100vh - 70px);
+  padding: 55px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2ff, white);
+}
+
+.loginBox {
+  width: 100%;
+  max-width: 450px;
+}
+
+.loginBox .logo {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.loginBox h1 {
+  margin-bottom: 5px;
+}
+
+.loginBox > p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.bottomText {
+  text-align: center;
+  margin-top: 17px;
+}
+
+.bottomText a {
+  color: #4f46e5;
+  font-weight: bold;
+}
+
+/* Popup */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popup.show {
+  display: flex;
+}
+
+.popupContent {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 27px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 13px;
+  top: 8px;
+  border: none;
+  background: none;
+  font-size: 28px;
+}
+
+.popupIcon {
+  font-size: 58px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.popupContent p {
+  color: #666;
+  margin-bottom: 7px;
+}
+
+/* Footer */
+footer {
+  background: #172033;
+  color: white;
+  padding-top: 40px;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 35px;
+  padding-bottom: 30px;
+}
+
+.footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer p,
+.footer a {
+  color: #cbd5e1;
+}
+
+.copy {
+  border-top: 1px solid #334155;
+  text-align: center;
+  padding: 15px;
+  color: #94a3b8;
+}
