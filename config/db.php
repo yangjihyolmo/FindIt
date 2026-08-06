@@ -3,8 +3,8 @@
 $host = "127.0.0.1";
 $port = "5431";
 $dbname = "lostfound_db";
-$username = "postgres";
-$password = "your_password";
+$username = "yangjihyolmo";
+$password = "yangjihyolmo13@#";
 
 try {
     $connection = new PDO(
@@ -18,8 +18,9 @@ try {
         PDO::ERRMODE_EXCEPTION
     );
 
+    //echo "Database connected successfully.";
+
 } catch (PDOException $error) {
     die("Database connection failed: " . $error->getMessage());
 }
-
 ?>
