@@ -568,3 +568,73 @@ footer {
   padding: 15px;
   color: #94a3b8;
 }
+
+/* Mobile */
+@media (max-width: 850px) {
+  .menuBtn {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 15px 5%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .main,
+  .formArea,
+  .contact,
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .items,
+  .steps,
+  .values {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .searchBox {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .numberRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .numberRow div {
+    border: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .left h1 {
+    font-size: 38px;
+  }
+
+  .items,
+  .steps,
+  .values,
+  .searchBox,
+  .row,
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .titleRow {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+}
