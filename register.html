@@ -1,105 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LostFound - Register</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LostFound - Register</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<header>
-  <div class="container nav">
-    <a href="index.html" class="logo">Lost<span>Found</span></a>
+    <header>
+        <div class="container nav">
+            <a href="index.html" class="logo">Lost<span>Found</span></a>
 
-    <button id="menuBtn" class="menuBtn">☰</button>
+            <button id="menuBtn" class="menuBtn">☰</button>
 
-    <div id="menu" class="menu">
-      <a href="index.html">Home</a>
-      <a href="browse.html">Browse</a>
-      <a href="report.html">Report Item</a>
-      <a href="contact.html">Contact</a>
-      <a href="login.html">Login</a>
-      <a href="register.html" class="registerBtn">Register</a>
-    </div>
-  </div>
-</header>
-
-
-<main>
-
-<section class="loginPage">
-  <div class="loginBox">
-    <a href="index.html" class="logo">Lost<span>Found</span></a>
-    <h1>Register</h1>
-    <p>Create a new account.</p>
-
-    <form action="register.php" method="POST">
-      <div class="input">
-        <label>Full Name *</label>
-        <input type="text" id="registerName" required>
-      </div>
-
-      <div class="input">
-        <label>Email *</label>
-        <input type="email" id="registerEmail" required>
-      </div>
-
-      <div class="input">
-        <label>Phone</label>
-        <input type="tel" id="phone">
-      </div>
-
-      <div class="input">
-        <label>Password *</label>
-        <input type="password" id="password" minlength="6" required>
-      </div>
-
-      <div class="input">
-        <label>Confirm Password *</label>
-        <input type="password" id="confirmPassword" minlength="6" required>
-      </div>
-
-      <button type="submit" class="btn fullBtn">Register</button>
-      <p id="registerMessage" class="message"></p>
-    </form>
-
-    <p class="bottomText">
-      Already have an account?
-      <a href="login.html">Login here</a>
-    </p>
-  </div>
-</section>
-
-</main>
+            <div id="menu" class="menu">
+                <a href="index.html">Home</a>
+                <a href="browse.html">Browse</a>
+                <a href="report.html">Report Item</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html">Login</a>
+                <a href="register.html" class="registerBtn">Register</a>
+            </div>
+        </div>
+    </header>
 
 
-<footer>
-  <div class="container footer">
-    <div>
-      <h2>LostFound</h2>
-      <p>A simple lost and found website for everyone.</p>
-    </div>
+    <main>
 
-    <div>
-      <h3>Pages</h3>
-      <a href="browse.html">Browse Items</a>
-      <a href="report.html">Report Item</a>
-      <a href="contact.html">Contact</a>
-    </div>
+        <section class="loginPage">
+            <div class="loginBox">
+                <a href="index.html" class="logo">Lost<span>Found</span></a>
+                <h1>Register</h1>
+                <p>Create a new account.</p>
 
-    <div>
-      <h3>Contact</h3>
-      <p>support@lostfound.com</p>
-      <p>+1 555 123 4567</p>
-    </div>
-  </div>
+                <form action="register.php" method="POST">
+                    <div class="input">
+                        <label>Full Name *</label>
+                        <input type="text" id="registerName" name="full_name" required>
+                    </div>
 
-  <div class="copy">
-    <p>© 2026 LostFound Management System</p>
-  </div>
-</footer>
+                    <div class="input">
+                        <label>Email *</label>
+                        <input type="email" id="registerEmail" name="email" required>
+                    </div>
 
-<script src="js/script.js"></script>
+                    <div class="input">
+                        <label>Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="input">
+                        <label>Password *</label>
+                        <input type="password" id="password" name="password" minlength="6" required>
+                    </div>
+
+                    <div class="input">
+                        <label>Confirm Password *</label>
+                        <input type="password" id="confirmPassword" name="confirm_password" minlength="6" required>
+                    </div>
+
+                    <button type="submit" class="btn fullBtn">Register</button>
+                    <p id="registerMessage" class="message"></p>
+                </form>
+
+                <p class="bottomText">
+                    Already have an account?
+                    <a href="login.html">Login here</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div class="container footer">
+            <div>
+                <h2>LostFound</h2>
+                <p>A simple lost and found website for everyone.</p>
+            </div>
+
+            <div>
+                <h3>Pages</h3>
+                <a href="browse.html">Browse Items</a>
+                <a href="report.html">Report Item</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>support@lostfound.com</p>
+                <p>+1 555 123 4567</p>
+            </div>
+        </div>
+
+        <div class="copy">
+            <p>© 2026 LostFound Management System</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
+
 </html>
