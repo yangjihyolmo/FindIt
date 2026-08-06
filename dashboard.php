@@ -1,3 +1,78 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["user_id"])) {
+    header("Location: login.php");
+    exit();
+}
+
+if (($_SESSION["role"] ?? "") === "admin") {
+    header("Location: admin_dashboard.php");
+    exit();
+}
+
+require_once "config/db.php";
+
+$userId = $_SESSION["user_id"];
+$fullName = $_SESSION["full_name"] ?? "User";
+
+/* Total reports */
+$stmt = $connection->prepare("SELECT COUNT(*) FROM items WHERE user_id = ?");
+$stmt->execute([$userId]);
+$totalReports = $stmt->fetchColumn();
+
+/* Lost reports */
+$stmt = $connection->prepare(
+    "SELECT COUNT(*) FROM items
+     WHERE user_id = ? AND LOWER(item_type) = 'lost'"
+);
+$stmt->execute([$userId]);
+$lostItems = $stmt->fetchColumn();
+
+/* Found reports */
+$stmt = $connection->prepare(
+    "SELECT COUNT(*) FROM items
+     WHERE user_id = ? AND LOWER(item_type) = 'found'"
+);
+$stmt->execute([$userId]);
+$foundItems = $stmt->fetchColumn();
+
+/* Returned reports */
+$stmt = $connection->prepare(
+    "SELECT COUNT(*) FROM items
+     WHERE user_id = ? AND LOWER(status) = 'returned'"
+);
+$stmt->execute([$userId]);
+$returnedItems = $stmt->fetchColumn();
+
+/* Recent reports */
+$stmt = $connection->prepare(
+    "SELECT item_id, item_name, item_type, location,
+            item_date, status, image_name
+     FROM items
+     WHERE user_id = ?
+     ORDER BY created_at DESC
+     LIMIT 3"
+);
+$stmt->execute([$userId]);
+$recentItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+function safeStatusClass(string $status): string
+{
+    $status = strtolower(trim($status));
+
+    if ($status === "returned" || $status === "resolved") {
+        return "status-success";
+    }
+
+    if ($status === "claimed" || $status === "matched") {
+        return "status-warning";
+    }
+
+    return "status-open";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -869,63 +944,62 @@
                 </div>
 
                 <?php if (!empty($recentItems)): ?>
-                <div class="reports-grid">
-                    <?php foreach ($recentItems as $item): ?>
-                    <?php
+                    <div class="reports-grid">
+                        <?php foreach ($recentItems as $item): ?>
+                            <?php
                             $itemType = strtolower(trim((string) $item["item_type"]));
                             $typeClass = $itemType === "lost" ? "type-lost" : "type-found";
                             $statusClass = safeStatusClass((string) $item["status"]);
                             ?>
 
-                    <article class="report-card">
-                        <div class="report-image-wrap">
-                            <?php if (!empty($item["image_name"])): ?>
-                            <img src="uploads/<?php echo rawurlencode(basename($item[" image_name"])); ?>"
-                            alt="
+                            <article class="report-card">
+                                <div class="report-image-wrap">
+                                    <?php if (!empty($item["image_name"])): ?>
+                                        <img src="uploads/<?php echo rawurlencode(basename($item[" image_name"])); ?>" alt="
                             <?php echo htmlspecialchars($item["item_name"]); ?>" class="report-image">
-                            <?php else: ?>
-                            <div class="report-placeholder">📦</div>
-                            <?php endif; ?>
+                                    <?php else: ?>
+                                        <div class="report-placeholder">📦</div>
+                                    <?php endif; ?>
 
-                            <span class="type-badge <?php echo $typeClass; ?>">
-                                <?php echo htmlspecialchars($item["item_type"]); ?>
-                            </span>
-                        </div>
+                                    <span class="type-badge <?php echo $typeClass; ?>">
+                                        <?php echo htmlspecialchars($item["item_type"]); ?>
+                                    </span>
+                                </div>
 
-                        <div class="report-body">
-                            <span class="report-date">
-                                <?php echo htmlspecialchars($item["item_date"]); ?>
-                            </span>
+                                <div class="report-body">
+                                    <span class="report-date">
+                                        <?php echo htmlspecialchars($item["item_date"]); ?>
+                                    </span>
 
-                            <h3>
-                                <?php echo htmlspecialchars($item["item_name"]); ?>
-                            </h3>
+                                    <h3>
+                                        <?php echo htmlspecialchars($item["item_name"]); ?>
+                                    </h3>
 
-                            <p class="report-location">
-                                📍
-                                <?php echo htmlspecialchars($item["location"]); ?>
-                            </p>
+                                    <p class="report-location">
+                                        📍
+                                        <?php echo htmlspecialchars($item["location"]); ?>
+                                    </p>
 
-                            <div class="report-bottom">
-                                <span class="status-badge <?php echo $statusClass; ?>">
-                                    <?php echo htmlspecialchars($item["status"]); ?>
-                                </span>
+                                    <div class="report-bottom">
+                                        <span class="status-badge <?php echo $statusClass; ?>">
+                                            <?php echo htmlspecialchars($item["status"]); ?>
+                                        </span>
 
-                                <a href="item.php?id=<?php echo (int) $item[" item_id"]; ?>" class="details-link">
-                                    View details →
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                    <?php endforeach; ?>
-                </div>
+                                        <a href="item.php?id=<?php echo (int) $item[" item_id"]; ?>" class="details-link">
+                                            View details →
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
                 <?php else: ?>
-                <div class="empty-state">
-                    <div class="empty-state-icon">📭</div>
-                    <h3>No reports yet</h3>
-                    <p>You have not submitted a lost or found item report.</p>
-                    <a href="report.php" class="primary-button">Create Your First Report</a>
-                </div>
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📭</div>
+                        <h3>No reports yet</h3>
+                        <p>You have not submitted a lost or found item report.</p>
+                        <a href="report.php" class="primary-button">Create Your First Report</a>
+                    </div>
                 <?php endif; ?>
             </div>
         </section>
