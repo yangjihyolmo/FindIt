@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LostFound - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">Lost<span>Found</span></a>
+
+    <button id="menuBtn" class="menuBtn">☰</button>
+
+    <div id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="report.html">Report Item</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="register.html" class="registerBtn">Register</a>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+<section class="home">
+  <div class="container main">
+    <div class="left">
+      <p class="smallTitle">LOST AND FOUND WEBSITE</p>
+      <h1>Find your lost item easily.</h1>
+      <p class="text">
+        Report lost and found items, search recent reports,
+        and help people get their belongings back.
+      </p>
+
+      <div class="buttons">
+        <a href="report.html" class="btn">Report Item</a>
+        <a href="browse.html" class="btn outlineBtn">Browse Items</a>
+      </div>
+    </div>
+
+    <div class="right box">
+      <div class="bigIcon">🔍</div>
+      <h2>Quick Search</h2>
+      <p>Search for wallet, phone, keys and more.</p>
+      <input type="text" id="homeSearch" placeholder="Search item">
+      <button id="homeSearchBtn" class="btn fullBtn">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="container numberRow">
+    <div><h2>24</h2><p>Total Reports</p></div>
+    <div><h2>11</h2><p>Lost Items</p></div>
+    <div><h2>13</h2><p>Found Items</p></div>
+    <div><h2>8</h2><p>Returned Items</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="titleRow">
+      <div>
+        <p class="smallTitle">RECENT ITEMS</p>
+        <h2>Latest Reports</h2>
+      </div>
+      <a href="browse.html">View All →</a>
+    </div>
+
+    <div id="homeItems" class="items"></div>
+  </div>
+</section>
+
+
+
+</main>
+
+
+<footer>
+  <div class="container footer">
+    <div>
+      <h2>LostFound</h2>
+      <p>A simple lost and found website for everyone.</p>
+    </div>
+
+    <div>
+      <h3>Pages</h3>
+      <a href="browse.html">Browse Items</a>
+      <a href="report.html">Report Item</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>support@lostfound.com</p>
+      <p>+1 555 123 4567</p>
+    </div>
+  </div>
+
+  <div class="copy">
+    <p>© 2026 LostFound Management System</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
