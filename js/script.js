@@ -104,3 +104,28 @@ function showHomeItems() {
     }
   }
 }
+
+// Show all items on browse page
+function showItems(list) {
+  let allItems = document.getElementById("allItems");
+  let resultCount = document.getElementById("resultCount");
+  let noItem = document.getElementById("noItem");
+
+  if (!allItems) {
+    return;
+  }
+
+  allItems.innerHTML = "";
+
+  for (let i = 0; i < list.length; i++) {
+    allItems.innerHTML += createCard(list[i]);
+  }
+
+  resultCount.innerText = list.length;
+
+  if (list.length === 0) {
+    noItem.style.display = "block";
+  } else {
+    noItem.style.display = "none";
+  }
+}
