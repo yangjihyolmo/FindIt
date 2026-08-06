@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# XAMPP logs
+*.log
+
+# Environment files (if you have any)
+.env
+
+# Composer (only if used)
+vendor/
+
+# Node.js (only if used)
+node_modules/
+
+# Uploaded images (optional)
+uploads/*
+!uploads/.gitkeep
