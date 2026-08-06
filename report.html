@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LostFound - Report Item</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">Lost<span>Found</span></a>
+
+    <button id="menuBtn" class="menuBtn">☰</button>
+
+    <div id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="report.html">Report Item</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="register.html" class="registerBtn">Register</a>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+<section class="pageTitle">
+  <div class="container">
+    <p class="smallTitle">REPORT ITEM</p>
+    <h1>Report Lost or Found Item</h1>
+    <p>Enter correct details about the item.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container formArea">
+    <div class="leftInfo">
+      <h2>Before You Submit</h2>
+      <p>Please provide clear information so other people can identify the item.</p>
+
+      <div class="tip">
+        <h3>Helpful Tips</h3>
+        <ul>
+          <li>Use a simple item name.</li>
+          <li>Add correct date and location.</li>
+          <li>Mention color and special marks.</li>
+          <li>Do not add private information.</li>
+        </ul>
+      </div>
+    </div>
+
+    <form id="reportForm" class="form">
+      <div class="row">
+        <div class="input">
+          <label>Report Type *</label>
+          <select id="reportType" required>
+            <option value="">Select Type</option>
+            <option value="lost">Lost Item</option>
+            <option value="found">Found Item</option>
+          </select>
+        </div>
+
+        <div class="input">
+          <label>Category *</label>
+          <select id="category" required>
+            <option value="">Select Category</option>
+            <option>Electronics</option>
+            <option>Documents</option>
+            <option>Bags</option>
+            <option>Keys</option>
+            <option>Books</option>
+            <option>Accessories</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input">
+        <label>Item Name *</label>
+        <input type="text" id="itemName" required>
+      </div>
+
+      <div class="row">
+        <div class="input">
+          <label>Color</label>
+          <input type="text" id="color">
+        </div>
+
+        <div class="input">
+          <label>Date *</label>
+          <input type="date" id="date" required>
+        </div>
+      </div>
+
+      <div class="input">
+        <label>Location *</label>
+        <input type="text" id="location" required>
+      </div>
+
+      <div class="input">
+        <label>Description *</label>
+        <textarea id="description" rows="5" required></textarea>
+      </div>
+
+      <div class="input">
+        <label>Contact Email *</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <button type="submit" class="btn fullBtn">Submit Report</button>
+      <p id="formMessage" class="message"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+
+<footer>
+  <div class="container footer">
+    <div>
+      <h2>LostFound</h2>
+      <p>A simple lost and found website for everyone.</p>
+    </div>
+
+    <div>
+      <h3>Pages</h3>
+      <a href="browse.html">Browse Items</a>
+      <a href="report.html">Report Item</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>support@lostfound.com</p>
+      <p>+1 555 123 4567</p>
+    </div>
+  </div>
+
+  <div class="copy">
+    <p>© 2026 LostFound Management System</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
