@@ -356,3 +356,80 @@ header {
     background: white;
     border-radius: 10px;
 }
+
+/* Forms */
+.formArea,
+.contact,
+.about {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.leftInfo p,
+.contactInfo > p,
+.about p {
+  color: #666;
+  margin-top: 8px;
+}
+
+.tip,
+.aboutBox {
+  background: #eef2ff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.tip ul,
+.aboutBox ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #666;
+}
+
+.form,
+.loginBox {
+  background: white;
+  padding: 27px;
+  border-radius: 10px;
+  box-shadow: 0 7px 22px rgba(0,0,0,0.09);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.input label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input input,
+.input select,
+.input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.input textarea {
+  resize: vertical;
+}
+
+.message {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
